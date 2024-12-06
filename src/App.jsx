@@ -5,7 +5,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Navbar_notWorkingFade from './components/Navbar_notWorkingFade'
 import Hero from './components/Hero'
-import FirstHero from './components/firstHero'
+import FirstHero from './components/FirstHero'
 import React, { useEffect, useRef } from 'react';
 import useSmoothScroll from './hooks/useSmoothScroll';
 import Breadcrumbs from './components/Breadcrumbs';
