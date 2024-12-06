@@ -1,0 +1,484 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+main {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+html, body, main {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* html {
+  background: rgb(249, 249, 249);
+} */
+.App{
+  width: 100%;
+  /* height: 100vh; */
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  background: rgb(187 187 187);
+ 
+  /* justify-content: center; */
+  /* background: rgb(255, 255, 255); */
+ }
+
+.navContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(249, 249, 249, 0.9);
+    transition: all 0.6s ease;
+    padding: 0 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+}
+.navContainer.scrolled {
+  position:fixed;
+  top: 50px;
+  left: calc(50% - 100px);
+  height: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  border-radius: 10px;
+  
+}
+.nav-background{
+  width: 100%;
+  height: 70px;
+  background: rgb(249, 249, 249);
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s ease;
+
+}
+.nav-background.scrolled{
+  height: 50px;
+  width: 200px;
+  background: rgb(249, 249, 249);
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+/* .navContainer.scrolled .logo {
+  display: none;
+} */
+
+.logo{
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  background: rgba(81, 81, 81, 0.239);
+  border-radius: 6px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.306);
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin: 40px;
+  z-index: 11;
+  transition: all 0.6s ease;
+}
+.logo.scrolled{
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  background: rgba(81, 81, 81, 0.239);
+  border-radius: 6px;
+  font-size: 30px;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.306);
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin: 40px;
+  z-index: 11;
+}
+
+.menuItemsContainer{
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  color: 	#174266;
+  color: 	#87949f;
+  margin: 0 40px 0 0;
+  z-index: 11;
+  transform: scale(1);
+  transition: transform 0.6s ease;
+  animation: fadeIn 0.6s ease;
+  
+ 
+}
+.menuItemsContainer > div {
+  position: relative;
+    /* overflow: hidden; */
+}
+
+.menuItemsContainer > div::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 150%;
+  background: rgb(249, 249, 249); /* Match your navbar background color */
+  animation: revealUp 0.5s ease forwards;
+  border-radius: 5px;
+}
+
+@keyframes revealUp {
+  from {
+      /* height: 100%; */
+      top: 0;
+  }
+  to {
+     /*  height:0%; */
+      top: -70px;
+    }
+}
+
+/* Stagger the reveal for each menu item */
+.menuItemsContainer .menuItem1::after { animation-delay: 0.1s; }
+.menuItemsContainer .menuItem2::after { animation-delay: 0.15s; }
+.menuItemsContainer .menuItem3::after { animation-delay: 0.2s; }
+.menuItemsContainer .menuItem4::after { animation-delay: 0.25s; }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+.navContainer.scrolled .menuItemsContainer {
+  transform: scale(0.6);
+  transition-delay: 0s; /* No delay when scrolled */
+}
+
+.navContainer:not(.scrolled) .menuItemsContainer {
+  transition-delay:0.6s; /* Delay the transition back to full size */
+}
+.menuItem1,.menuItem2,.menuItem3,.menuItem4,.menuItem5{
+  width: 130px;
+  height: 35px;
+  background: rgba(128, 128, 128, 0.333);
+  border-radius: 5px;
+}
+
+.hamburger-icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  margin: 0 55px 0 0;
+  z-index: 11;
+  color: rgb(222, 222, 222);
+  
+}
+.hamburger-icon svg {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  margin: 0 55px 0 0;
+  z-index: 11;
+  
+
+  transition: all0.6s ease;
+  
+}
+
+.hamburger-icon.scrolled {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 0 55px 0 0;
+  z-index: 11;
+}
+
+@media screen and (min-width: 900px) {
+  .hamburger-icon {
+    display: none;
+  }
+}
+
+/* @media screen and (max-width: 899px) {
+  .nav-links {
+    display: none;
+  }
+} */
+
+.mobile-menu {
+  position: fixed;
+  
+  top: -100%;
+  width: 220px;
+  right: 0;
+  height:250px;
+  background: rgb(230, 232, 233);
+  
+  transition:0.6s ease-in-out;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 10px;
+  z-index: -10;
+}
+
+.mobile-menu.active {
+  top: 71px;
+  z-index: -10;
+}
+
+/* When menu is open, adjust the menuItemsContainer styles for mobile */
+.mobile-menu .menuItemsContainerMobile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+}
+
+
+.mobile-menu .menuItem1,
+.mobile-menu .menuItem2,
+.mobile-menu .menuItem3,
+.mobile-menu .menuItem4,
+.mobile-menu .menuItem5 {
+  width:70%;
+  margin: 10px 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+main {
+  width: 100%;
+  overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+/* sections */
+.section {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.01rem solid rgba(78, 78, 78, 0.2);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.section1{
+  background: rgb(237, 234, 234);
+}
+.section2{
+  background: rgb(210, 192, 192);
+}
+.section3{
+ /*  background: rgb(210, 203, 192); */
+ /* width: 300%; */
+}
+.section4{
+  background: rgb(204, 210, 192);
+}
+.section5{
+  background: rgb(192, 210, 203);
+}
+.section6{
+  background: rgb(192, 203, 210);
+}
+.section7{
+  background: rgb(194, 192, 210);
+}
+.section8{
+  background: rgb(210, 192, 210);
+}
+/* Lenis */
+[data-scroll-container] {
+  perspective: 1px;
+  transform-style: preserve-3d;
+}
+
+[data-scroll-section] {
+  position: relative;
+  z-index: 1;
+}
+
+/* Example parallax section */
+.parallax-section {
+  height: 100vh;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+}
+.content {
+  position: relative;
+  z-index: 1;
+}
+.horizontal-section {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  
+  scroll-snap-type: x mandatory;
+  padding: 0;
+  margin: 0;
+  width: 100vw; /* Ensure it takes the full viewport width */
+}
+
+.horizontal-slide {
+  position: absolute;
+  inset: 0;  /* This is shorthand for top: 0, right: 0, bottom: 0, left: 0 */
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+  display: flex;
+  flex: 0 0 100vw; /* Each slide takes the full viewport width */
+  scroll-snap-align: start;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%);  /* Start all slides off-screen to the right */
+}
+.horizontal-slide.active {
+  transform: translateX(0);  /* Active slide is centered */
+}
+.threePointOne{
+  background: rgb(185, 174, 184);
+
+}
+.threePointTwo{
+  background: rgb(164, 165, 149);
+  
+}
+.threePointThree{
+ 
+  background: rgb(170, 184, 186);
+  
+}
+
+
+/* Breadcrumbs */
+
+.breadcrumb-container {
+  position: fixed;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 500;
+}
+
+.breadcrumb-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 10px;
+  border-radius: 20%;
+  background-color: #344065;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active, .small-dot.active {
+  background-color: #da6b20;
+}
+
+.horizontal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.small-dot {
+  width: 6px;
+    height: 9px;
+    background-color: #344065;
+}
